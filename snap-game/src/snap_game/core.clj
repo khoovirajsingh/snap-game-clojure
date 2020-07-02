@@ -8,8 +8,12 @@
 (def ranks (into [] ranks-seq))
 
 (defn create-card
-  [rank suit]
+  [suit rank]
   (str rank " of " suit))
 
+(defn create-cards-for-suit
+  [suit]
+  (map (partial create-card suit) ranks))
+
 (def create-deck
-  (range 52))
+  (flatten (map create-cards-for-suit suits)))
