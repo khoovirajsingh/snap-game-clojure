@@ -4,5 +4,5 @@
 
 (deftest create-a-deck-of-52-unique-cards
   (is (= 52 (count create-deck)))
-  (is (= "AS" (first create-deck)))
-  (is (= "KC" (last create-deck))))
+  (is (= "Ace of Spade" (first create-deck)))
+  (is (= "King of Club" (last create-deck))))
