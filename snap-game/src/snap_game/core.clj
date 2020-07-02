@@ -7,5 +7,9 @@
 
 (def ranks (into [] ranks-seq))
 
+(defn create-card
+  [rank suit]
+  (str rank " of " suit))
+
 (def create-deck
   (range 52))
