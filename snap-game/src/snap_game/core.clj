@@ -3,7 +3,9 @@
 
 (def suits ["Spade" "Heart" "Diamond" "Club"])
 
-(def ranks-seq (concat ["Ace"] (map str (rest (range 10))) ["Jack" "Queen" "King"]))
+(def two-to-ten (map str (rest (range 10))))
+
+(def ranks-seq (concat ["Ace"] two-to-ten ["Jack" "Queen" "King"]))
 
 (def ranks (into [] ranks-seq))
 
