@@ -2,6 +2,5 @@
   (:require [clojure.test :refer :all]
             [snap-game.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest create-a-deck-of-52-unique-cards
+  (is (= 52 (count create-deck))))
