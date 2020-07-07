@@ -26,3 +26,7 @@
     (:name player-one)
     (:name player-two)))
 
+(defn snap?
+  [player-one-card player-two-card]
+  (= (:rank player-one-card) (:rank player-two-card)))
+

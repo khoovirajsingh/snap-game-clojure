@@ -12,3 +12,6 @@
 
 (deftest player-with-quickest-reaction-wins
   (is (= "Player One" (winner? player-one player-two))))
+
+(deftest snap-when-rank-matches
+  (is (= true (snap? {:rank "2" :suit "S"} {:rank "2" :suit "C"}))))
