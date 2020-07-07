@@ -19,3 +19,10 @@
 
 (def create-deck
   (flatten (map create-cards-for-suit suits)))
+
+(defn winner?
+  [player-one player-two]
+  (if (< (:think-time player-one) (:think-time player-two))
+    (:name player-one)
+    (:name player-two)))
+

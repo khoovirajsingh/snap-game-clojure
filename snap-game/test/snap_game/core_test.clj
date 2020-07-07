@@ -11,4 +11,4 @@
   (is (= "King of Club" (last create-deck))))
 
 (deftest player-with-quickest-reaction-wins
-  (is (= "Player one won!" (winner?  player-one player-two))))
+  (is (= "Player One" (winner? player-one player-two))))
