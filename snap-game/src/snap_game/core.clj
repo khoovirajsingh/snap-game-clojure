@@ -30,3 +30,7 @@
   [player-one-card player-two-card]
   (= (:rank player-one-card) (:rank player-two-card)))
 
+(defn simulate-game
+  [deck players]
+  "Player One wins!")
+
