@@ -23,5 +23,5 @@
   (is (= true (snap? {:rank "2" :suit "S"} {:rank "2" :suit "C"}))))
 
 (deftest acceptance-tests
-  (is (= "SNAP! John is the winner!!" (simulate-game winning-deck players)))
-  (is (= "Game over! It is a draw!!" (simulate-game draw-deck players))))
+  (is (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players)))
+  (is (= "Bob turns card 'KS'\nJohn turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players))))
