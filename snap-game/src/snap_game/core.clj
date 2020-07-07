@@ -1,17 +1,17 @@
 (ns snap-game.core
   (:gen-class))
 
-(def suits ["Spade" "Heart" "Diamond" "Club"])
+(def suits ["S" "H" "D" "C"])
 
 (def two-to-ten (map str (rest (range 10))))
 
-(def ranks-seq (concat ["Ace"] two-to-ten ["Jack" "Queen" "King"]))
+(def ranks-seq (concat ["A"] two-to-ten ["J" "Q" "K"]))
 
 (def ranks (into [] ranks-seq))
 
 (defn create-card
   [suit rank]
-  (str rank " of " suit))
+  {:rank rank :suit suit})
 
 (defn create-cards-for-suit
   [suit]

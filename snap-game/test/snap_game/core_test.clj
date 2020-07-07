@@ -7,8 +7,8 @@
 
 (deftest create-a-deck-of-52-unique-cards
   (is (= 52 (count create-deck)))
-  (is (= "Ace of Spade" (first create-deck)))
-  (is (= "King of Club" (last create-deck))))
+  (is (= {:rank "A" :suit "S"} (first create-deck)))
+  (is (= {:rank "K" :suit "C"} (last create-deck))))
 
 (deftest player-with-quickest-reaction-wins
   (is (= "Player One" (winner? player-one player-two))))
