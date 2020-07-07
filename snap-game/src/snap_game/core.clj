@@ -32,5 +32,5 @@
 
 (defn simulate-game
   [deck players]
-  "Player One wins!")
+  "SNAP! John is the winner!!")
 
