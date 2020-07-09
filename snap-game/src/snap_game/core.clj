@@ -34,6 +34,10 @@
   [player card]
   (merge player card))
 
+(defn assign-card-to-player
+  [players deck]
+  (map player-to-card players deck))
+
 (defn simulate-game
   [deck players]
   "SNAP! John is the winner!!")

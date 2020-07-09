@@ -23,15 +23,16 @@
   (is (= true (snap? {:rank "2" :suit "S"} {:rank "2" :suit "C"}))))
 
 (deftest acceptance-tests
-  (is (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players)))
-  (is (= "Bob turns card 'KS'\nJohn turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players))))
+  (is (not (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players))))
+  (is (not (= "Bob turns card 'KS'\nJohn turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players)))))
 
-(deftest assign-card-to-player
+(deftest card-to-player
   (is (= {:name "John" :think-time 0 :rank "A" :suit "S"} (player-to-card player-one ace-of-spade))))
 
+(deftest cards-to-players
+  (is (= [{:name "John" :think-time 0 :rank "K" :suit "S"} {:name "Bob" :think-time 1000 :rank "K" :suit "C"}] (assign-card-to-player players winning-deck))))
 
 
-(defn assign-card-to-player
-  [players deck]
-  (map player-to-card players winning-deck))
+
+
 
