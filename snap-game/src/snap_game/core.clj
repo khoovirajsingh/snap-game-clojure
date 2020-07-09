@@ -30,7 +30,12 @@
   [player-one-card player-two-card]
   (= (:rank player-one-card) (:rank player-two-card)))
 
+(defn player-to-card
+  [player card]
+  (merge player card))
+
 (defn simulate-game
   [deck players]
   "SNAP! John is the winner!!")
+
 

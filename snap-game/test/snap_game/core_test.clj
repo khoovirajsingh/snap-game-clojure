@@ -25,3 +25,13 @@
 (deftest acceptance-tests
   (is (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players)))
   (is (= "Bob turns card 'KS'\nJohn turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players))))
+
+(deftest assign-card-to-player
+  (is (= {:name "John" :think-time 0 :rank "A" :suit "S"} (player-to-card player-one ace-of-spade))))
+
+
+
+(defn assign-card-to-player
+  [players deck]
+  (map player-to-card players winning-deck))
+
