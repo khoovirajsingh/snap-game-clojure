@@ -1,5 +1,7 @@
 (ns snap-game.core
   (:gen-class))
+(require '[clojure.string :as string])
+
 
 (def suits ["S" "H" "D" "C"])
 
@@ -26,10 +28,6 @@
     (:name player-one)
     (:name player-two)))
 
-(defn snap?
-  [player-one-card player-two-card]
-  (= (:rank player-one-card) (:rank player-two-card)))
-
 (defn player-to-card
   [player card]
   (merge player card))
@@ -44,8 +42,18 @@
         card-two (second cards)]
     (= (:rank card-one) (:rank card-two))))
 
+(defn format-player-turn
+  [play]
+  (str (:name play) " turns card " "'" (:rank play) (:suit play) "'"))
+
 (defn simulate-game
   [deck players]
-  "SNAP! John is the winner!!")
+  (let [game (assign-card-to-player players deck)
+        hands (partition 2 game)]
+    (if (not (some winner? hands))
+      (str (string/join "\n" (map format-player-turn game)) "\nGame over! It is a draw!!"))))
 
+(format-player-turn {:name "John" :think-time 0 :rank "K" :suit "S"})
+
+(str (string/join ", " ["spam" nil "eggs" "" "spam"]) "hi")
 

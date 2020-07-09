@@ -20,12 +20,9 @@
 (deftest player-with-quickest-reaction-wins
   (is (= "John" (winner-name player-one player-two))))
 
-(deftest snap-when-rank-matches
-  (is (= true (snap? {:rank "2" :suit "S"} {:rank "2" :suit "C"}))))
-
 (deftest acceptance-tests
   (is (not (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players))))
-  (is (not (= "Bob turns card 'KS'\nJohn turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players)))))
+  (is (= "John turns card 'KS'\nBob turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players))))
 
 (deftest card-to-player
   (is (= {:name "John" :think-time 0 :rank "A" :suit "S"} (player-to-card player-one ace-of-spade))))
@@ -35,6 +32,7 @@
 
 (deftest there-is-a-winner
   (is (= true (winner? game))))
+
 
 
 
