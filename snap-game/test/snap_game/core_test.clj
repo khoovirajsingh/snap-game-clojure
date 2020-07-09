@@ -21,7 +21,7 @@
   (is (= "John" (winner-name player-one player-two))))
 
 (deftest acceptance-tests
-  (is (not (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players))))
+  (is (= "Bob turns card 'KS'\nJohn turns card 'KC'\nSNAP! John is the winner!!" (simulate-game winning-deck players)))
   (is (= "John turns card 'KS'\nBob turns card 'AS'\nGame over! It is a draw!!" (simulate-game draw-deck players))))
 
 (deftest card-to-player
