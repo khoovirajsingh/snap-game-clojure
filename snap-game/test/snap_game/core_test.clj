@@ -10,6 +10,7 @@
 (def king-of-spade {:rank "K" :suit "S"})
 (def winning-deck [king-of-spade king-of-club])
 (def draw-deck [king-of-spade ace-of-spade])
+(def game [{:name "John" :think-time 0 :rank "K" :suit "S"} {:name "Bob" :think-time 1000 :rank "K" :suit "C"}])
 
 (deftest create-a-deck-of-52-unique-cards
   (is (= 52 (count create-deck)))
@@ -17,7 +18,7 @@
   (is (= king-of-club (last create-deck))))
 
 (deftest player-with-quickest-reaction-wins
-  (is (= "John" (winner? player-one player-two))))
+  (is (= "John" (winner-name player-one player-two))))
 
 (deftest snap-when-rank-matches
   (is (= true (snap? {:rank "2" :suit "S"} {:rank "2" :suit "C"}))))
@@ -30,7 +31,10 @@
   (is (= {:name "John" :think-time 0 :rank "A" :suit "S"} (player-to-card player-one ace-of-spade))))
 
 (deftest cards-to-players
-  (is (= [{:name "John" :think-time 0 :rank "K" :suit "S"} {:name "Bob" :think-time 1000 :rank "K" :suit "C"}] (assign-card-to-player players winning-deck))))
+  (is (= game (assign-card-to-player players winning-deck))))
+
+(deftest there-is-a-winner
+  (is (= true (winner? game))))
 
 
 

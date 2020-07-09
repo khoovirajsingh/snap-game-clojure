@@ -20,7 +20,7 @@
 (def create-deck
   (flatten (map create-cards-for-suit suits)))
 
-(defn winner?
+(defn winner-name
   [player-one player-two]
   (if (< (:think-time player-one) (:think-time player-two))
     (:name player-one)
@@ -37,6 +37,12 @@
 (defn assign-card-to-player
   [players deck]
   (map player-to-card players deck))
+
+(defn winner?
+  [cards]
+  (let [card-one (first cards)
+        card-two (second cards)]
+    (= (:rank card-one) (:rank card-two))))
 
 (defn simulate-game
   [deck players]
