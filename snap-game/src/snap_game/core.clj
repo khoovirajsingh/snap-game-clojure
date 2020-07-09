@@ -53,7 +53,3 @@
     (if (not (some winner? hands))
       (str (string/join "\n" (map format-player-turn game)) "\nGame over! It is a draw!!"))))
 
-(format-player-turn {:name "John" :think-time 0 :rank "K" :suit "S"})
-
-(str (string/join ", " ["spam" nil "eggs" "" "spam"]) "hi")
-
